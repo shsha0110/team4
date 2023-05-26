@@ -9,6 +9,7 @@ public class CustomXRGrabInteractable : XRGrabInteractable
     private bool collidingWithPlane = false;
     private bool isPressed = false;
     private InputDevice device;
+    Vector3 _staticPosition;
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
@@ -37,15 +38,17 @@ public class CustomXRGrabInteractable : XRGrabInteractable
 
     private void Update()
     {
+        
         if (device.isValid)
         {
             device.TryGetFeatureValue(CommonUsages.triggerButton, out isPressed);
-            if (isSelected && collidingWithPlane && isPressed)
+            if (isSelected&&collidingWithPlane && isPressed)  // if (isSelected && collidingWithPlane && isPressed)
             {
-                this.transform.parent = suctionCupPlane.transform;
+                this.transform.position = _staticPosition;
                 isPressed = false; // optional: release the button after sticking
             }
         }
+      
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,9 +56,11 @@ public class CustomXRGrabInteractable : XRGrabInteractable
         if (collision.gameObject == suctionCupPlane)
         {
             collidingWithPlane = true;
+            _staticPosition=this.gameObject.transform.position;
+
         }
     }
-
+    
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject == suctionCupPlane)
@@ -63,4 +68,5 @@ public class CustomXRGrabInteractable : XRGrabInteractable
             collidingWithPlane = false;
         }
     }
+    
 }
