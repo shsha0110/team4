@@ -365,6 +365,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/AnimateHandOnInput.cs"
+"Assets/GrabHandPose.cs"
+"Assets/HandData.cs"
 -langversion:9.0
 
 /deterministic

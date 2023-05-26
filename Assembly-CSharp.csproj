@@ -57,6 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AnimateHandOnInput.cs" />
+    <Compile Include="Assets\HandData.cs" />
+    <Compile Include="Assets\GrabHandPose.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\hover.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
